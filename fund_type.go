@@ -166,7 +166,7 @@ type AliPayFundAuthOrderVoucherCreateResponse struct {
 type AliPayFundAuthOrderFreeze struct {
 	NotifyURL    string `json:"-"`
 	AppAuthToken string `json:"-"`                        // 可选
-	AuthCode     string `json:"auth_code"`                // 必选, 支付授权码，25~30开头的长度为16~24位的数字，实际字符串长度以开发者获取的付款码长度为准
+	AuthCode     string `json:"auth_code,omitempty"`      // 必选, 支付授权码，25~30开头的长度为16~24位的数字，实际字符串长度以开发者获取的付款码长度为准
 	AuthCodeType string `json:"auth_code_type"`           // 必选, 授权码类型 目前仅支持"bar_code"
 	OutOrderNo   string `json:"out_order_no"`             // 必选, 商户授权资金订单号 ,不能包含除中文、英文、数字以外的字符，创建后不能修改，需要保证在商户端不重复。
 	OutRequestNo string `json:"out_request_no"`           // 必选, 商户本次资金操作的请求流水号，用于标示请求流水的唯一性，不能包含除中文、英文、数字以外的字符，需要保证在商户端不重复。
